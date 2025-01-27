@@ -8,7 +8,7 @@ const WIDGET_ERROR = 'mono.connect.error';
 const WIDGET_CLOSE = 'mono.connect.close';
 const WIDGET_LOAD = 'mono.connect.load';
 const WIDGET_FUNCTION = 'setupMonoConnect';
-final CONNECT_WIDGET_URL = 'https://connect.withmono.com/connect.js';
+final CONNECT_WIDGET_URL = 'https://connect.mono.co/v2/connect.js';
 
 typedef MonoConnectConfig = ({
   String key,
