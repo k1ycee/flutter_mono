@@ -291,7 +291,7 @@ class _FlutterMonoState extends State<FlutterMono> {
             if (widget.onEvent != null) widget.onEvent!(eventName, bodyMap);
             break;
           case 'mono.connect.widget.closed':
-            final code = data['data'] as String? ?? '';
+            final code = data['code'] as String? ?? '';
             Navigator.pop(context);
             if (mounted && widget.onClose != null) widget.onClose?.call(code);
             break;
