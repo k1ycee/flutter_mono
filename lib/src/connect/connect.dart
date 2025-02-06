@@ -109,7 +109,7 @@ class MonoConnect {
                 reference: `${config.reference}`.length > 0 ? `${config.reference}` : null,
                 onSuccess: (response) => sendMessage({ type: `$WIDGET_SUCCESS`, data: response.code }),
                 onLoad: () => sendMessage({ type: `$WIDGET_LOAD` }),
-                onClose: () => sendMessage({ type: `$WIDGET_CLOSE` }),
+                onClose: (response) => sendMessage({ type: `$WIDGET_CLOSE`, data: response.code }),
                 onEvent: (event, data) => sendMessage({
                     type: `$WIDGET_EVENT`,
                     event: event,
