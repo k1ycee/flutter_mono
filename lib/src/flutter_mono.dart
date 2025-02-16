@@ -52,8 +52,6 @@ class FlutterMono extends StatefulWidget {
   /// Triggered on Connect Widget close
   final ValueChanged<String>? onClose;
 
-    /// Triggered on Connect Widget Success
-  final ValueChanged<String>? onSuccess;
 
   /// Triggered on Connect Widget Load
   final Function? onLoad;
@@ -73,7 +71,6 @@ class FlutterMono extends StatefulWidget {
     this.onLoad,
     this.onClose,
     this.onEvent,
-    this.onSuccess,
     this.reference,
     this.selectedInstitution,
     this.showLogs = false,
@@ -294,16 +291,12 @@ class _FlutterMonoState extends State<FlutterMono> {
             var eventName = bodyMap['event'] as String;
             if (widget.onEvent != null) widget.onEvent!(eventName, bodyMap);
             break;
-          case 'mono.connect.close':
+          case 'mono.modal.closed':
             final code = data['code'] as String? ?? '';
             Navigator.pop(context);
             if (mounted && widget.onClose != null) widget.onClose?.call(code);
             break;
-          case 'mono.connect.success':
-            final code = data['code'] as String? ?? '';
-            Navigator.pop(context);
-            if (mounted && widget.onSuccess != null) widget.onSuccess?.call(code);
-            break;
+
 
           case 'onLoad':
             if (mounted && widget.onLoad != null) widget.onLoad!();
